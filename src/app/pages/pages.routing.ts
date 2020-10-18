@@ -9,11 +9,11 @@ const routes: Routes = [
     
 
     {
-        path: '',
+        path: 'dashboard',
         component: PagesComponent,
         children: [
             {
-            path: 'dashboard',
+            path: '',
             component: DashboardComponent
             },
             {
@@ -23,11 +23,6 @@ const routes: Routes = [
             {
             path: 'grafica1',
             component:  Grafica1Component
-            },
-            {
-            path: '',
-            redirectTo: '/dashboard',
-            pathMatch: 'full'
             }
         ]
     }
