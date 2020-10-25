@@ -29,7 +29,7 @@
                             <li class="fa fa-minus" ></li>
                         </button>
                     </span>
-		    <input type="number" class="form-control"
+		    <input type="text" class="form-control"
 		   	[(ngModel)]="progreso"
 		   	 placeholder="Progreso">
                     <span class="input-group-btn">

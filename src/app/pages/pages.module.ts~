@@ -29,9 +29,9 @@ import { PagesComponent } from './pages.component';
   ],
   imports: [
     CommonModule,
-    FormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class PagesModule { }
