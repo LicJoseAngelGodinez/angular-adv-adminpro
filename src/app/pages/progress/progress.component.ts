@@ -9,27 +9,4 @@ import { Component } from '@angular/core';
 })
 export class ProgressComponent {
 
-  progreso:number = 50;
-
-  get getPorcentaje() {  
-    return `${this.progreso}%`;  
-  };
-
-  cambiarValor ( valor:number ) { 
-   
-    let agregaValor = true;
-
-   if ( this.progreso == 0 && valor < 1 ) {
-   	agregaValor = false;
-   } 
-
-   if ( this.progreso == 100 && valor > 1 ) {
-   	agregaValor = false;
-   }
-
-   if ( agregaValor ) {
-  	this.progreso = this.progreso + valor;  
-   }
-     
-  };
 }
