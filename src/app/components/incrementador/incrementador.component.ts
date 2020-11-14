@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -7,27 +7,30 @@ import { Component } from '@angular/core';
   ]
 })
 export class IncrementadorComponent {
-  progreso:number = 50;
+  @Input() progreso:number = 50;
 
-  get getPorcentaje() {  
-    return `${this.progreso}%`;  
-  };
+  @Output() valorSalida: EventEmitter<number> = new EventEmitter();
 
-  cambiarValor ( valor:number ) { 
-   
-    let agregaValor = true;
+  cambiarValor ( valor:number ) {  
 
-   if ( this.progreso == 0 && valor < 1 ) {
-   	agregaValor = false;
+	let actualizar: boolean = true;
+
+   if ( this.progreso >= 100 && valor >= 0 ) {
+    	this.valorSalida.emit(100);
+    	this.progreso = 100;
+    	actualizar = false;
+   }
+
+   if ( this.progreso <= 0 && valor < 0 ) {
+    	this.valorSalida.emit(0);
+    	this.progreso = 0;
+    	actualizar = false;
    } 
 
-   if ( this.progreso == 100 && valor > 1 ) {
-   	agregaValor = false;
-   }
-
-   if ( agregaValor ) {
-  	this.progreso = this.progreso + valor;  
-   }
+   if ( actualizar ) {
+	this.progreso = this.progreso + valor;
+   	this.valorSalida.emit(this.progreso);
+   } 
      
   };
 }
