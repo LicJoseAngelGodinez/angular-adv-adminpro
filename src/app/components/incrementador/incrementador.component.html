@@ -2,8 +2,8 @@
 
   <div class="input-group">
     <span class="input-group-btn">
-    	<button class="btn btn-primary"
-	    	(click)="cambiarValor(-5)"
+    	<button (click)="cambiarValor(-5)"
+	  	[ngClass]="btnClass"
 	    	type="button">
       		<li class="fa fa-minus" ></li>
     	</button>
@@ -13,8 +13,8 @@
 	 placeholder="Progreso">
 
     <span class="input-group-btn">
-    	<button class="btn btn-primary"
-		(click)="cambiarValor(5)"	
+    	<button (click)="cambiarValor(5)"
+  		[ngClass]="btnClass"	  
 		type="button">
                	<li class="fa fa-plus"></li>
         </button>
